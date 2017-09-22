@@ -1,0 +1,7 @@
+
+Below is a list of things you can work on. These are basically for you to get used to Arduino and its libraries. More stuff is going to be added soon. 
+
+ - Program arduino to rotate a servo back and forth automatically.
+ - Program arduino to take input from a potentiometer
+ - Program arduino to rotate a servo based on the input from a potentiometer.
+
