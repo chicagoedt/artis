@@ -7,3 +7,5 @@ CS Members:
 
 - Arshad
 - TeaJay
+- Dave D
+
