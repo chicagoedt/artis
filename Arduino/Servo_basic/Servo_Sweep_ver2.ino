@@ -9,6 +9,7 @@ int position = 0;
 
 Servo myservo; // Creating a Servo object
 int servoPin = 9; // Servo Input Pin
+int servoDelay = 3000;  // Servo Sweep Delay
 
 void setup() {
 
@@ -24,8 +25,8 @@ void servo_sweep(int pos, int pause){ // Sweeps to a position and exits after a 
 
 void loop() {
 
-  servo_sweep(0,800);
-  servo_sweep(180,800);
+  servo_sweep(0,servoDelay);
+  servo_sweep(180,servoDelay);
 
 }
 
