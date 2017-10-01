@@ -5,7 +5,7 @@ But to get from 0 to 180, the servo has to hit all angles, hence it gives the il
 
 #include <Servo.h>
 
-// using define for stadic veriables will save big time on memory
+// using define for static variables will save big time on memory
 // #define VeriableName value
 #define ServoDelay 3000
 #define ServoPin 9
@@ -13,8 +13,6 @@ But to get from 0 to 180, the servo has to hit all angles, hence it gives the il
 int position = 0;
 
 Servo myservo; // Creating a Servo object
-//int servoPin = 9; // Servo Input Pin
-//int servoDelay = 3000;  // Servo Sweep Delay
 
 void setup() {
 
