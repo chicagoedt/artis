@@ -10,26 +10,40 @@
 
 //-----Static Variables-----//
 #define ELBOW 5
+#define WRIST 6
 
 //-----Global Variables-----//
-
+uint8_t elbow_angle = 90;
+uint8_t elbow_done = elbow_angle;
+uint8_t wrist_angle = 90;
+uint8_t wrist_done = wrist_angle;
 
 void setup() {
-   Wire.begin();   // Sets up I2C BUS (MASTER)
+  Wire.begin();   // Sets up I2C BUS (MASTER)
 }
 
 void loop() {
-  uint8_t angle = lowByte(random(180));  //create a random number 0 to 180 (8bits)
-  uint8_t done = 255;
+  if(elbow_done == elbow_angle){ //check if elbow is done moving
+    elbow_angle = lowByte(random(180));
+    next_angle(elbow_angle, ELBOW); //send new angle
+  }
+  if(wrist_done == wrist_angle){ //check if wrist is done moving
+    wrist_angle = lowByte(random(180));
+    next_angle(wrist_angle, WRIST); //send new angle
+  }
   
-  Wire.beginTransmission(ELBOW);  //conect with ELBOW slave
-  Wire.write(angle);              //send data to ELBOW
-  Wire.endTransmission();         //end transmition
-
-  do{ //check if the slave is done
+  //check current elbow position
   Wire.requestFrom(ELBOW, 1, true); //request 1 byte from slave
-      done = Wire.read();           //save data to done
-  delay(50); //final code use time object NOT DELAY
-  }while (done != angle);           //when done = angle move on
+      elbow_done = Wire.read();     //save data to elbow_done
 
+  //check current wrist position
+  Wire.requestFrom(WRIST, 1, true); //request 1 byte from slave
+      wrist_done = Wire.read();     //save data to wrist_done
 }
+
+void next_angle(uint8_t angle, int address){
+  Wire.beginTransmission(address);  //conect to I2C
+  Wire.write(angle);                //send data to adressed slave
+  Wire.endTransmission();           //end transmition
+}
+

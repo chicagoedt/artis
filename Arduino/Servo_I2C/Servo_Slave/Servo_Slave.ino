@@ -11,7 +11,7 @@
 Servo my_servo; // create an instance of servo
 
 //-----Static Variables-----//
-#define ADDRESS 5           // Address needs to be different for each slave (1-255)
+#define ADDRESS 6           // Address needs to be different for each slave (1-255)
 #define SERVO_PIN 9
 
 //-----Global Variables-----//
