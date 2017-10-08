@@ -7,16 +7,16 @@ But to get from 0 to 180, the servo has to hit all angles, hence it gives the il
 
 // using define for static variables will save big time on memory
 // #define VeriableName value
-#define ServoDelay 3000
-#define ServoPin 9
+#define SERVO_DELAY 3000
+#define SERVO_PIN 9
 
-int position = 0;
+//int position = 0;
 
 Servo myservo; // Creating a Servo object
 
 void setup() {
 
-  myservo.attach(ServoPin); // Attaching pin 9 to myservo object
+  myservo.attach(SERVO_PIN); // Attaching pin 9 to myservo object
 }
 
 void servo_sweep(int pos, int pause){ // Sweeps to a position and exits after a delay;
@@ -28,8 +28,8 @@ void servo_sweep(int pos, int pause){ // Sweeps to a position and exits after a 
 
 void loop() {
 
-  servo_sweep(0,ServoDelay);
-  servo_sweep(180,ServoDelay);
+  servo_sweep(0,SERVO_DELAY);
+  servo_sweep(180,SERVO_DELAY);
 
 }
 
