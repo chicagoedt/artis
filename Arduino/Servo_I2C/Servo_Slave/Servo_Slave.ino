@@ -11,7 +11,7 @@
 Servo my_servo; // create an instance of servo
 
 //-----Static Variables-----//
-#define ADDRESS 6           // Address needs to be different for each slave (1-255)
+#define ADDRESS 15           // Address needs to be different for each slave (1-255)
 #define SERVO_PIN 9
 
 //-----Global Variables-----//
@@ -25,6 +25,7 @@ void setup() {
   
   my_servo.attach(SERVO_PIN); 
   my_servo.write(target_angle); //brings the servo to "home" at start
+  delay(500);
 
 }
 
@@ -34,7 +35,7 @@ void loop() {
   }else if (current_angle > target_angle){ //incroment the angle down to target angle
     my_servo.write(current_angle--);
   }
-  delay(10); //final code use time object NOT DELAY
+  //delay(10); //final code use time object NOT DELAY
   //error checking between each angle
 }
 
